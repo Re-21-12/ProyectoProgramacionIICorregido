@@ -30,8 +30,7 @@ public class Principal {
 				procesos_fabrica_sillas.revisarInventario(inventario);
 				System.out.println("Presione ENTER");
 				entrada.nextLine();
-				System.out.println("Desea agregar Material?: [s] | [n] ");
-				opcion = entrada.nextLine();
+				opcion = "s";
 
 				break;
 			case "2":
@@ -89,12 +88,12 @@ public class Principal {
 				System.out.println("Desea regresar al menu?: [s] | [n] ");
 				opcion = entrada.nextLine();
 				break;
-					
+
 			case "s":
 				System.out.println("Puede escoger las siguientes opciones: ");
 
 				System.out.println(
-						"\n 1. Cargar Ordenes \n 2. Revisar Inventario \n 3. Realizar Ordenes \n 4. Corte de materiales \n 5. Ensamblaje \n 6. Empaque \n 7. Envio Hacia el Almacen \n 0. Salir");
+						"\n 1. Revisar Inventario \n 2. Realizar Ordenes \n 3. Corte de materiales \n 4. Ensamblaje \n 5. Empaque \n 6. Envio Hacia el Almacen \n 0. Salir");
 				opcion = entrada.nextLine();
 				break;
 			default:

@@ -82,6 +82,15 @@ public class Procesos_Fabrica_de_Sillas implements Interfaz_Procesos_Fabrica_de_
 				String id_proveedor = generarId();
 
 				do {
+					System.out.println("+----------|------------------------+");
+					System.out.println("|Requisitos minimos para una silla: |");
+					System.out.println("|nombre    | cantidad               |");
+					System.out.println("|madera    | 3u                     |");
+					System.out.println("|clavos    | 10u                    |");
+					System.out.println("|lijas     | 2u                     |");
+					System.out.println("|barniz    | 0.9463kg               |");
+					System.out.println("|pegamento | 0.1250kg               |");
+					System.out.println("+----------|------------------------+");
 					String id = generarId();
 					System.out.println("Ingrese el nombre del material: ");
 					String nombre = entrada.nextLine();
@@ -98,8 +107,8 @@ public class Procesos_Fabrica_de_Sillas implements Interfaz_Procesos_Fabrica_de_
 					for (Material mostrar_material : inventario.getMateriales()) {
 						precio += (mostrar_material.getCosto() * mostrar_material.getCantidad());
 						cantidad += mostrar_material.getCantidad();
-						System.out.println("Los materiales ingresados son: " + materiales);
 					}
+					System.out.println("Los materiales ingresados son: " + materiales);
 
 					System.out.println("Presione ENTER");
 					entrada.nextLine();
@@ -370,21 +379,22 @@ public class Procesos_Fabrica_de_Sillas implements Interfaz_Procesos_Fabrica_de_
 			System.out.println("Ha vendido: " + cantidad + " sillas");
 			Factura factura_cliente = distribuidor.Generar_factura(generarId(), costo, nombre_distribuidor,
 					productos_venta);
-
+			System.out.println("Presione [ENTER] ");
+			entrada.nextLine();
 			System.out.println("Ingrese nombre del cliente: ");
 			String nombre_cliente = entrada.nextLine();
 			System.out.println("Ingrese numero de telefono del cliente: ");
 			String numero_cliente = entrada.nextLine();
-
+			System.out.println("La factura es : " + factura_cliente.toString());
 			Cliente cliente = new Cliente(generarId(), nombre_cliente, numero_cliente, factura_cliente);
+			distribuidores.add(distribuidor);
+			clientes.add(cliente);
 			for (Distribuidor revision_distribuidor : inventario.getDistribuidores()) {
 				System.out.println("Se agrego el distribuidor: " + revision_distribuidor.getNombre());
 			}
 			for (Cliente revision_cliente : inventario.getClientes()) {
 				System.out.println("Se agrego el cliente: " + revision_cliente.getNombre());
 			}
-			distribuidores.add(distribuidor);
-			clientes.add(cliente);
 		} catch (Exception e) {
 			System.err.println(e);
 		}
